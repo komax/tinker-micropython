@@ -13,12 +13,12 @@ class FadingLED:
         else:
             self.pin.on()
 
-    def fade_on(self, ms=25):
+    def fade_on(self, ms=15):
         for i in range(512):
             time.sleep_ms(ms)
             self.pwm.duty(i)
 
-    def fade_off(self, ms=25):
+    def fade_off(self, ms=15):
         for i in range(512, -1, -1):
             time.sleep_ms(ms)
             self.pwm.duty(i)
@@ -88,15 +88,15 @@ def kit(mseconds=300):
 
 
 
-def pulse(mseconds=500):
+def pulse(mseconds=70):
     t = TogglePins()
     while True:
         time.sleep_ms(mseconds)
-        t.toggle(2)
+        t.toggle(12)
         time.sleep_ms(mseconds)
-        t.toggle(4)
+        t.toggle(13)
         time.sleep_ms(mseconds)
-        t.toggle(19)
+        t.toggle(14)
 
 
 
