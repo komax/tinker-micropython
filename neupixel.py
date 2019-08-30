@@ -4,8 +4,10 @@ import machine, neopixel
 
 import time
 
-def create_neu_pixel(pin, num_pixels):
-    return NeuPixel(pin, num_pixels)
+def create_neupixel(pin, num_pixels, color=(255, 255, 255)):
+    np  = NeuPixel(pin, num_pixels)
+    np.set_color(*color)
+    return np
 
 class NeuPixel:
     def __init__(self, pin, num_pixels):
@@ -35,20 +37,15 @@ class NeuPixel:
             time.sleep_ms(wait)
 
 
-def warm_color_neu_pixel():
-    num_pixels = 3
-    pin = 2
-    neupixel = create_neu_pixel(pin, num_pixels)
+def warm_color_neupixel(num_pixels, pin):
     # Warm color. white noise.
-    neupixel.set_color(255, 147, 41)
-    return neupixel
+    color = (255, 147, 41)
+    return create_neupixel(num_pixels, pin, color)
 
 
-def blue_bounce_pixel():
-    num_pixels = 3
-    pin = 2
-    neupixel = create_neu_pixel(pin, num_pixels)
-    neupixel.bounce(0, 0, 255, 50)
-    return neupixel
+def blue_bounce_pixel(num_pixels, pin, color=(0, 0, 255), bounce_time=50):
+    np = create_neupixel(num_pixels, pin)
+    np.bounce(*color, bounce_time)
+    return np
 
 
