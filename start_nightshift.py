@@ -16,7 +16,7 @@ if machine.reset_cause() == machine.DEEPSLEEP_RESET:
 white_noise_color = 255, 147, 41
 
 
-pixel = neupixel.create_neu_pixel(pin=16, num_pixels=3)
+pixel = neupixel.create_neupixel(pin=16, num_pixels=3)
 
 
 def light_up(duration):
