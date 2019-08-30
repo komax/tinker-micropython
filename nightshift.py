@@ -29,13 +29,13 @@ class Nightshift:
             (time.hour == self.begin.hour and time.minute < self.begin.minute)
 
     def is_within(self, time):
-        if self.begin.hour < time.hour < self.end.hour:
-            return True
-        elif time.hour == self.begin.hour \
+        if time.hour == self.begin.hour \
             and self.begin.minute <= time.minute:
             return True
         elif time.hour == self.end.hour \
             and time.minute <= self.end.minute:
+            return True
+        elif self.begin.hour < time.hour < self.end.hour:
             return True
         else:
             return False
@@ -85,9 +85,3 @@ class Nightshift:
 
     def __repr__(self):
         return "Nightshift(begin={}, end={})".format(self.begin, self.end)
-
-
-#ns = Nightshift(begin=Time(13,30), end=Time(15,45))
-#print(ns.duration_s())
-#print(ns._is_before(Time(12, 50)))
-#print(ns._is_before(Time(13, 45)))
