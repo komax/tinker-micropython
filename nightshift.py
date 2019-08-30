@@ -83,6 +83,9 @@ class Nightshift:
         print("I am sleeping for {} minutes".format(st))
         return st
 
+    def __repr__(self):
+        return "Nightshift(begin={}, end={})".format(self.begin, self.end)
+
 
 #ns = Nightshift(begin=Time(13,30), end=Time(15,45))
 #print(ns.duration_s())

@@ -24,6 +24,11 @@ class NightshiftTest(unittest.TestCase):
     def test_within_yields_false(self):
         self.assertFalse(self.ns.is_within(Time(15,55)))
 
+    def test_repr_ouput_matches(self):
+        computed_repr = repr(self.ns)
+        expected_repr = "Nightshift(begin={}, end={})".format(self.ns.begin, self.ns.end)
+        self.assertEqual(expected_repr, computed_repr)
+
 
 class SleeptimeTest(unittest.TestCase):
 
