@@ -42,6 +42,11 @@ class SleeptimeTest(unittest.TestCase):
     def test_sleep_time_for_end_time(self):
         self.assertEqual(45 + 21 * 60 - 1, self.ns.sleep_time(Time(15, 45), max_sleep=Time(100, 0)))
 
+    def test_cut_off_time(self):
+        sleeptime =self.ns.sleep_time(self.ns.begin, max_sleep=Time(1, 15))
+        self.assertEqual(75, sleeptime)
+
+
 
 if __name__ == '__main__':
     unittest.main()
